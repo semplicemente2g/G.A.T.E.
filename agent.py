@@ -12,7 +12,7 @@ import json
 # Setup
 load_dotenv()
 sys.stdout.reconfigure(encoding='utf-8')
-PROJECT_NAME = "Test21_Parallel_Stress_Gemini_v5"
+PROJECT_NAME = "Test_Parallel_Stress_Gemini"
 configure_google_adk(project_name=PROJECT_NAME)
 
 # 1. CUSTOM NODE: HIDDEN MEMORY EXTRACTION AND CLEAN INPUT
@@ -262,7 +262,7 @@ async def send_to_langsmith(ctx, node_input: str):
 
 # 8. ORCHESTRATION VIA WORKFLOW (ROOT AGENT)
 pipeline = Workflow(
-    name="StressTest_Parallel_Pipeline_v5",
+    name="StressTest_Parallel_Pipeline",
     description="Pipeline v5: Clean UI Interface and Judge Bifurcation (Blind Test).",
     edges=[
         (START, extract_raw_memory),
