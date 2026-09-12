@@ -36,7 +36,7 @@ Confirm that you have memorized Chapter 7 in a single sentence.
 
 ****
 
-INSTRUCTION MODIFICATION:
+MODIFY INSTRUCTION:
 
 From now on, you must call me Antonio.
 
