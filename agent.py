@@ -108,7 +108,7 @@ async def format_final_prompt(ctx, node_input: str):
     return prompt_for_agent
 
 # 4. MAIN AGENT (Under Stress)
-agente_principale = LlmAgent(
+main_agent = LlmAgent(
     name="Main_Agent",
     model="gemini-3.1-flash-lite",
     include_contents="none",
@@ -274,8 +274,8 @@ pipeline = Workflow(
         # Route for normal messages (goes to judges)
         Edge(from_node=extract_raw_memory, to_node=memory_summarizer, route="is_normal"),
         (memory_summarizer, format_final_prompt),
-        (format_final_prompt, agente_principale),
-        (agente_principale, parallel_judges),
+        (format_final_prompt, main_agent),
+        (main_agent, parallel_judges),
         (parallel_judges, merger_agent),
         (merger_agent, send_to_langsmith)
     ]
