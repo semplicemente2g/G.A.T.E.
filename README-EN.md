@@ -1,4 +1,4 @@
-# A Runtime Guardrail Framework for Secure and Governable AI Agents..
+# A Runtime Guardrail Framework for Secure and Governable AI Agents.
 [🇮🇹 **Leggi in Italiano**](README.md)
 
 Experimental architecture that implements an advanced multi-agent workflow based on the **Google Agent Development Kit (ADK)**. The main goal is to run a "Cognitive Stress Test" on Large Language Models (LLMs), evaluating their ability to maintain context, comply with complex (even contradictory) business rules, and resist prompt injection attacks or mid-conversation role changes.
