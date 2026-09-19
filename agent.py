@@ -166,7 +166,7 @@ giudice_2 = LlmAgent(
     include_contents="none",
     instruction=prompt_judge,
     description="Judge based on OpenAI GPT OSS 120B (Groq).",
-    output_key="score_llama"
+    output_key="score_gpt_oss"
 )
 
 giudice_3 = LlmAgent(
@@ -199,7 +199,7 @@ merger_agent = LlmAgent(
 
     **Judges' Scores (in JSON format):**
     - Gemini: {score_gemini}
-    - Judge 2: {score_llama}
+    - Judge 2: {score_gpt_oss}
     - Qwen: {score_qwen}
 
     **Your task:**
@@ -239,10 +239,10 @@ async def send_to_langsmith(ctx, node_input: str):
     state = getattr(ctx, 'state', {})
     
     # If we bypassed the judges, the scores might not be there
-    if state.get('score_gemini') or state.get('score_llama') or state.get('score_qwen'):
+    if state.get('score_gemini') or state.get('score_gpt_oss') or state.get('score_qwen'):
         scores = [
             parse_score(state.get("score_gemini"), "Gemini_Judge"),
-            parse_score(state.get("score_llama"), "GPT_OSS_Judge"),
+            parse_score(state.get("score_gpt_oss"), "GPT_OSS_Judge"),
             parse_score(state.get("score_qwen"), "Qwen_Judge")
         ]
         
